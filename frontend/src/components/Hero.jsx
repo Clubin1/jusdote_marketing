@@ -103,9 +103,9 @@ const Hero = () => {
                   animate={{ scale: 1 }}
                   transition={{ duration: 0.6, delay: 1.2 }}
                 >
-                  500%
+                  2-3x
                 </motion.span>
-                <span className="stat-label">Average ROI Increase</span>
+                <span className="stat-label">Average ROI Improvement</span>
               </div>
               <div className="stat">
                 <motion.span 
@@ -114,9 +114,9 @@ const Hero = () => {
                   animate={{ scale: 1 }}
                   transition={{ duration: 0.6, delay: 1.4 }}
                 >
-                  250+
+                  15+
                 </motion.span>
-                <span className="stat-label">Enterprise Clients</span>
+                <span className="stat-label">Happy Clients</span>
               </div>
               <div className="stat">
                 <motion.span 
@@ -127,7 +127,7 @@ const Hero = () => {
                 >
                   24/7
                 </motion.span>
-                <span className="stat-label">AI-Powered Performance</span>
+                <span className="stat-label">AI-Powered Support</span>
               </div>
             </motion.div>
 
