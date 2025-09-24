@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { FaBrain, FaBars, FaTimes } from 'react-icons/fa';
+import { FaBars, FaTimes } from 'react-icons/fa';
+import logo from '../assets/jusdote_logo.png';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -35,8 +36,7 @@ const Navbar = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          <FaBrain className="logo-icon" />
-          <span>JusDote</span>
+          <img src={logo} alt="JusDote" className="logo-image" />
         </motion.div>
 
         <div className={`nav-menu ${isMobileMenuOpen ? 'active' : ''}`}>

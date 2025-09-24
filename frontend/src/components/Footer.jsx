@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaBrain, FaLinkedin, FaTwitter, FaInstagram, FaArrowUp } from 'react-icons/fa';
+import { FaArrowUp } from 'react-icons/fa';
+import logo from '../assets/jusdote_logo.png';
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -32,38 +33,11 @@ const Footer = () => {
             viewport={{ once: true }}
           >
             <div className="footer-logo">
-              <FaBrain className="logo-icon" />
-              <span>JusDote</span>
+              <img src={logo} alt="JusDote" className="logo-image" />
             </div>
             <p className="footer-description">
               Transforming businesses through cutting-edge AI-powered marketing solutions using Claude, GPT-4, and Jasper with unmatched professionalism and results.
             </p>
-            <div className="social-links">
-              <motion.a 
-                href="#" 
-                className="social-link"
-                whileHover={{ scale: 1.2, rotate: 5 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <FaLinkedin />
-              </motion.a>
-              <motion.a 
-                href="#" 
-                className="social-link"
-                whileHover={{ scale: 1.2, rotate: -5 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <FaTwitter />
-              </motion.a>
-              <motion.a 
-                href="#" 
-                className="social-link"
-                whileHover={{ scale: 1.2, rotate: 5 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <FaInstagram />
-              </motion.a>
-            </div>
           </motion.div>
 
           <motion.div 
@@ -78,7 +52,7 @@ const Footer = () => {
               <ul>
                 <li>
                   <motion.button 
-                    onClick={() => scrollToSection('content-creation')}
+                    onClick={() => scrollToSection('services')}
                     whileHover={{ x: 5 }}
                     transition={{ duration: 0.2 }}
                   >
@@ -87,29 +61,65 @@ const Footer = () => {
                 </li>
                 <li>
                   <motion.button 
-                    onClick={() => scrollToSection('ad-management')}
+                    onClick={() => scrollToSection('services')}
                     whileHover={{ x: 5 }}
                     transition={{ duration: 0.2 }}
                   >
-                    Ad Management
+                    Email Marketing
                   </motion.button>
                 </li>
                 <li>
                   <motion.button 
-                    onClick={() => scrollToSection('marketing-automation')}
+                    onClick={() => scrollToSection('services')}
                     whileHover={{ x: 5 }}
                     transition={{ duration: 0.2 }}
                   >
-                    Marketing Automation
+                    PPC & Paid Search
                   </motion.button>
                 </li>
                 <li>
                   <motion.button 
-                    onClick={() => scrollToSection('ai-chatbots')}
+                    onClick={() => scrollToSection('services')}
                     whileHover={{ x: 5 }}
                     transition={{ duration: 0.2 }}
                   >
-                    AI Chatbots
+                    SEO & Keyword Optimization
+                  </motion.button>
+                </li>
+                <li>
+                  <motion.button 
+                    onClick={() => scrollToSection('services')}
+                    whileHover={{ x: 5 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    B2B Marketing
+                  </motion.button>
+                </li>
+                <li>
+                  <motion.button 
+                    onClick={() => scrollToSection('services')}
+                    whileHover={{ x: 5 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    Social Media Management
+                  </motion.button>
+                </li>
+                <li>
+                  <motion.button 
+                    onClick={() => scrollToSection('services')}
+                    whileHover={{ x: 5 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    Google Ads Management
+                  </motion.button>
+                </li>
+                <li>
+                  <motion.button 
+                    onClick={() => scrollToSection('services')}
+                    whileHover={{ x: 5 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    Content Management
                   </motion.button>
                 </li>
               </ul>
@@ -118,15 +128,6 @@ const Footer = () => {
             <div className="footer-column">
               <h4>Company</h4>
               <ul>
-                <li>
-                  <motion.button 
-                    onClick={() => scrollToSection('testimonials')}
-                    whileHover={{ x: 5 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    Case Studies
-                  </motion.button>
-                </li>
                 <li>
                   <motion.button 
                     onClick={() => scrollToSection('contact')}
@@ -166,7 +167,7 @@ const Footer = () => {
           transition={{ duration: 0.6, delay: 0.6 }}
           viewport={{ once: true }}
         >
-          <p>&copy; 2024 JusDote. All rights reserved.</p>
+          <p>&copy; 2025 JusDote. All rights reserved.</p>
           <motion.button 
             className="scroll-to-top"
             onClick={scrollToTop}
