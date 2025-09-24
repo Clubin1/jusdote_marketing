@@ -225,7 +225,7 @@
   border: 1px solid var(--border-color);
   max-width: 1200px;
   margin: 0 auto;
-  overflow: hidden;
+  overflow: visible;
   box-sizing: border-box;
 }
 
@@ -308,26 +308,23 @@
 .service-content-area {
   min-height: 450px;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .service-content {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
+  position: relative;
   width: 100%;
-  padding: 0 var(--space-4);
+  padding: var(--space-6) var(--space-4);
   box-sizing: border-box;
 }
 
 .service-content-main {
   display: grid;
-  grid-template-columns: 1fr 300px;
+  grid-template-columns: 1fr 350px;
   gap: var(--space-12);
   align-items: start;
   max-width: 100%;
-  overflow: hidden;
+  overflow: visible;
   box-sizing: border-box;
 }
 
@@ -342,8 +339,8 @@
 /* Service Content Header */
 .service-content-header {
   display: flex;
-  align-items: center;
-  gap: var(--space-4);
+  flex-direction: column;
+  gap: var(--space-2);
   margin-bottom: var(--space-8);
 }
 
@@ -425,6 +422,8 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-6);
+  align-items: flex-start;
+  max-width: 100%;
 }
 
 .service-pricing {
@@ -457,8 +456,9 @@
   transition: all var(--transition-smooth);
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: var(--space-2);
-  justify-self: flex-start;
+  width: 100%;
   box-shadow: var(--shadow-lg);
 }
 
@@ -475,7 +475,9 @@
   padding: var(--space-6);
   height: 100%;
   max-width: 300px;
+  min-height: 300px;
   overflow: hidden;
+  position: relative;
 }
 
 .service-visual {
@@ -487,6 +489,7 @@
   justify-content: center;
   position: relative;
   box-shadow: var(--shadow-xl);
+  flex-shrink: 0;
 }
 
 .service-visual .service-visual-icon {

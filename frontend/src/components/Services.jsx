@@ -1,76 +1,136 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaPenNib, FaBullseye, FaCogs, FaRobot, FaCheck, FaArrowRight } from 'react-icons/fa';
+import { FaCheck, FaArrowRight } from 'react-icons/fa';
 
 const Services = () => {
   const services = [
     {
-      id: "content-creation",
-      icon: FaPenNib,
+      id: "ai-content",
       title: "AI Content Creation",
-      subtitle: "Strategic Content That Converts",
-      description: "Transform your content strategy with our advanced AI orchestration using Claude, GPT-4, and Jasper. We create premium content ecosystems that drive engagement, build authority, and convert prospects into customers at enterprise scale.",
+      subtitle: "Daily & Weekly Content That Converts",
+      description: "Transform your content strategy with AI-powered content creation delivered daily or weekly. We create premium content ecosystems using advanced AI tools that drive engagement, build authority, and convert prospects into customers.",
       features: [
-        "SEO-optimized blog posts that rank on page 1",
-        "High-converting social media content across all platforms",
-        "Automated email sequences with 40%+ open rates",
-        "Multi-platform content distribution strategy",
+        "Daily or weekly AI-generated blog posts and articles",
+        "SEO-optimized content that ranks on page 1",
+        "Social media content across all platforms",
+        "Email marketing content and sequences",
         "Brand voice consistency across all channels",
         "Performance analytics and optimization"
       ],
-      pricing: "$2,000 - $5,000 per month",
+      pricing: "$750 - $2,000 per month",
       gradient: "gradient-blue"
     },
     {
-      id: "ad-management",
-      icon: FaBullseye,
-      title: "AI-Powered Ads",
-      subtitle: "Advertising That Actually Works",
-      description: "Revolutionary advertising orchestration across Facebook, Google, and emerging platforms. Our proprietary AI algorithms analyze thousands of data points in real-time to deliver superior ROAS and performance metrics that traditional PPC simply cannot match.",
+      id: "email-marketing",
+      title: "Email Marketing",
+      subtitle: "Automated Campaigns That Drive Sales",
+      description: "Professional email marketing campaigns that nurture leads and drive conversions. We create automated sequences, newsletters, and promotional campaigns that build relationships and boost your bottom line.",
       features: [
-        "AI-driven bidding optimization with 300%+ ROAS improvement",
-        "Cross-platform campaign management and coordination",
-        "Real-time audience testing and refinement",
-        "Advanced attribution modeling and analytics",
-        "Creative testing and optimization automation",
-        "Dedicated performance reporting dashboard"
+        "Automated email sequences with high open rates",
+        "Newsletter design and content creation",
+        "Segmented campaigns for targeted messaging",
+        "A/B testing and performance optimization",
+        "CRM integration and lead nurturing",
+        "Detailed analytics and reporting"
       ],
-      pricing: "$3,000 - $8,000 per month + ad spend",
-      gradient: "gradient-pink"
-    },
-    {
-      id: "marketing-automation",
-      icon: FaCogs,
-      title: "Marketing Automation",
-      subtitle: "Systems That Scale Your Business",
-      description: "Enterprise-grade automation architectures designed for sophisticated lead nurturing and customer lifecycle management. We build seamless integrations that scale with your business growth while maintaining personal touchpoints that convert.",
-      features: [
-        "Complete lead nurturing automation systems",
-        "Advanced email marketing workflows and sequences",
-        "CRM integration and data synchronization",
-        "Customer journey mapping and optimization",
-        "Analytics dashboard with actionable insights",
-        "Ongoing optimization and performance monitoring"
-      ],
-      pricing: "$5,000 - $15,000 setup + $1,000 - $3,000 monthly",
+      pricing: "$500 - $1,500 per month",
       gradient: "gradient-green"
     },
     {
-      id: "ai-chatbots",
-      icon: FaRobot,
-      title: "AI Chatbots",
-      subtitle: "24/7 Sales That Never Sleep",
-      description: "Intelligent conversational systems powered by advanced natural language processing. Our premium chatbots qualify leads, answer questions, and guide prospects through your sales funnel with human-like precision, operating seamlessly around the clock.",
+      id: "ppc-ads",
+      title: "PPC & Paid Search",
+      subtitle: "High-Converting Ad Campaigns",
+      description: "Strategic pay-per-click advertising across Google, Facebook, and other platforms. Our data-driven approach maximizes your ad spend efficiency and delivers measurable ROI through optimized campaigns.",
       features: [
-        "24/7 intelligent lead qualification and scoring",
-        "Multi-language support for global markets",
-        "Seamless CRM integration and data capture",
-        "Advanced conversation flow optimization",
-        "Real-time performance analytics and insights",
-        "Custom training on your products and services"
+        "Google Ads campaign management and optimization",
+        "Facebook and Instagram advertising",
+        "Keyword research and bid optimization",
+        "Landing page optimization for conversions",
+        "Real-time performance monitoring",
+        "Detailed ROI reporting and analysis"
       ],
-      pricing: "$2,000 - $5,000 setup + $500 - $2,000 monthly",
+      pricing: "$1,000 - $3,000 per month + ad spend",
+      gradient: "gradient-pink"
+    },
+    {
+      id: "seo-optimization",
+      title: "SEO & Keyword Optimization",
+      subtitle: "Organic Growth That Lasts",
+      description: "Comprehensive search engine optimization that improves your organic visibility and drives qualified traffic. We focus on technical SEO, content optimization, and keyword strategies that deliver long-term results.",
+      features: [
+        "Keyword research and competitive analysis",
+        "On-page and technical SEO optimization",
+        "Content optimization for search rankings",
+        "Local SEO for geographic targeting",
+        "Link building and authority development",
+        "Monthly performance reports and insights"
+      ],
+      pricing: "$750 - $2,000 per month",
       gradient: "gradient-purple"
+    },
+    {
+      id: "b2b-marketing",
+      title: "B2B Marketing",
+      subtitle: "Enterprise-Grade Lead Generation",
+      description: "Specialized B2B marketing strategies designed for complex sales cycles and enterprise clients. We create targeted campaigns that generate high-quality leads and nurture them through your sales funnel.",
+      features: [
+        "B2B lead generation and qualification",
+        "Account-based marketing strategies",
+        "LinkedIn advertising and outreach",
+        "Sales enablement content creation",
+        "CRM integration and lead scoring",
+        "ROI tracking and performance metrics"
+      ],
+      pricing: "$1,250 - $3,500 per month",
+      gradient: "gradient-orange"
+    },
+    {
+      id: "social-media",
+      title: "Social Media Management",
+      subtitle: "Engaging Content & Strategic Ads",
+      description: "Complete social media management including content creation, community engagement, and strategic advertising. We build your brand presence across all major platforms while driving measurable business results.",
+      features: [
+        "Content creation and posting schedule",
+        "Social media advertising campaigns",
+        "Community management and engagement",
+        "Influencer partnerships and collaborations",
+        "Social listening and reputation management",
+        "Performance analytics and growth tracking"
+      ],
+      pricing: "$600 - $1,750 per month",
+      gradient: "gradient-teal"
+    },
+    {
+      id: "google-ads",
+      title: "Google Ads Management",
+      subtitle: "Maximize Your Search Presence",
+      description: "Specialized Google Ads management that optimizes your search, display, and shopping campaigns. We focus on maximizing your ad spend efficiency and driving qualified traffic to your website.",
+      features: [
+        "Search campaign optimization and management",
+        "Display and remarketing campaigns",
+        "Shopping ads for e-commerce",
+        "YouTube advertising strategies",
+        "Conversion tracking and optimization",
+        "Monthly performance reviews and adjustments"
+      ],
+      pricing: "$900 - $2,500 per month + ad spend",
+      gradient: "gradient-red"
+    },
+    {
+      id: "content-management",
+      title: "Content Management",
+      subtitle: "Strategic Content Planning & Execution",
+      description: "Comprehensive content management services that plan, create, and distribute content across all your marketing channels. We ensure consistent messaging and optimal performance across your entire content ecosystem.",
+      features: [
+        "Content strategy and editorial planning",
+        "Multi-channel content creation",
+        "Content calendar management",
+        "Brand voice and messaging consistency",
+        "Content performance analysis",
+        "Ongoing optimization and updates"
+      ],
+      pricing: "$500 - $1,500 per month",
+      gradient: "gradient-indigo"
     }
   ];
 
@@ -93,9 +153,9 @@ const Services = () => {
           viewport={{ once: true }}
           className="services-tabbed-header"
         >
-          <h2 className="section-title">AI-Powered Marketing Services</h2>
+          <h2 className="section-title">Comprehensive Marketing Services</h2>
           <p className="section-subtitle">
-            Choose your path to exponential growth with our premium AI marketing solutions
+            From AI content creation to PPC management - we've got all your marketing needs covered
           </p>
         </motion.div>
 
@@ -116,9 +176,6 @@ const Services = () => {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
-                <div className="service-tab-icon">
-                  <service.icon />
-                </div>
                 <span className="service-tab-title">{service.title}</span>
               </motion.button>
             ))}
@@ -138,17 +195,8 @@ const Services = () => {
                 <div className="service-content-main">
                   <div className="service-content-text">
                     <div className="service-content-header">
-                      <motion.div 
-                        className="service-content-icon"
-                        whileHover={{ scale: 1.1, rotate: 5 }}
-                        transition={{ duration: 0.3 }}
-                      >
-{React.createElement(services[activeService].icon)}
-                      </motion.div>
-                      <div>
-                        <h3 className="service-content-title">{services[activeService].title}</h3>
-                        <h4 className="service-content-subtitle">{services[activeService].subtitle}</h4>
-                      </div>
+                      <h3 className="service-content-title">{services[activeService].title}</h3>
+                      <h4 className="service-content-subtitle">{services[activeService].subtitle}</h4>
                     </div>
                     
                     <p className="service-content-description">
@@ -169,47 +217,23 @@ const Services = () => {
                         </motion.div>
                       ))}
                     </div>
-
-                    <div className="service-content-bottom">
-                      <div className="service-pricing">
-                        <span className="pricing-label">Investment:</span>
-                        <span className="pricing-value">{services[activeService].pricing}</span>
-                      </div>
-                      
-                      <motion.button
-                        className="btn btn-primary service-cta-button"
-                        onClick={scrollToContact}
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                      >
-                        Get Started Today
-                        <FaArrowRight className="btn-icon" />
-                      </motion.button>
-                    </div>
                   </div>
 
-                  <div className="service-content-visual">
-                    <motion.div
-                      className={`service-visual ${services[activeService].gradient}`}
-                      initial={{ scale: 0.8, opacity: 0 }}
-                      animate={{ scale: 1, opacity: 1 }}
-                      transition={{ duration: 0.5, delay: 0.2 }}
+                  <div className="service-content-bottom">
+                    <div className="service-pricing">
+                      <span className="pricing-label">Investment:</span>
+                      <span className="pricing-value">{services[activeService].pricing}</span>
+                    </div>
+                    
+                    <motion.button
+                      className="btn btn-primary service-cta-button"
+                      onClick={scrollToContact}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
                     >
-                      <motion.div 
-                        className="service-visual-icon"
-                        animate={{ 
-                          scale: [1, 1.1, 1],
-                          rotate: [0, 5, -5, 0]
-                        }}
-                        transition={{ 
-                          duration: 4,
-                          repeat: Infinity,
-                          ease: "easeInOut"
-                        }}
-                      >
-{React.createElement(services[activeService].icon)}
-                      </motion.div>
-                    </motion.div>
+                      Get Started Today
+                      <FaArrowRight className="btn-icon" />
+                    </motion.button>
                   </div>
                 </div>
               </motion.div>

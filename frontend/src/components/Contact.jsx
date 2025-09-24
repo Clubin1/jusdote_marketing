@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaCalendarCheck, FaClock, FaShieldAlt, FaPaperPlane, FaCheckCircle, FaExclamationTriangle } from 'react-icons/fa';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -56,11 +57,36 @@ const Contact = () => {
     setSubmitStatus(null);
 
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      // EmailJS configuration
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+      const autoResponseTemplateId = import.meta.env.VITE_EMAILJS_AUTO_RESPONSE_TEMPLATE_ID;
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+      // Prepare email template parameters for notification to you
+      const notificationParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        company: formData.company,
+        service: formData.service,
+        budget: formData.budget,
+        message: formData.message,
+        to_email: 'JusdoteInquiry@gmail.com'
+      };
+
+      // Prepare auto-response parameters for client
+      const autoResponseParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        service: formData.service,
+        to_email: formData.email
+      };
+
+      // Send notification email to you
+      await emailjs.send(serviceId, templateId, notificationParams, publicKey);
       
-      // Log form data (replace with actual API call)
-      console.log('Form submitted:', formData);
+      // Send auto-response to client
+      await emailjs.send(serviceId, autoResponseTemplateId, autoResponseParams, publicKey);
       
       setSubmitStatus('success');
       setFormData({
@@ -72,6 +98,7 @@ const Contact = () => {
         message: ''
       });
     } catch (error) {
+      console.error('Email sending failed:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -203,10 +230,14 @@ const Contact = () => {
                     transition={{ duration: 0.2 }}
                   >
                     <option value="">Select a service</option>
-                    <option value="content">AI Content Creation & Distribution</option>
-                    <option value="ads">AI-Powered Ad Management</option>
-                    <option value="automation">Marketing Automation Setup</option>
-                    <option value="chatbots">AI Chatbots & Lead Qualification</option>
+                    <option value="ai-content">AI Content Creation</option>
+                    <option value="email-marketing">Email Marketing</option>
+                    <option value="ppc-ads">PPC & Paid Search</option>
+                    <option value="seo-optimization">SEO & Keyword Optimization</option>
+                    <option value="b2b-marketing">B2B Marketing</option>
+                    <option value="social-media">Social Media Management</option>
+                    <option value="google-ads">Google Ads Management</option>
+                    <option value="content-management">Content Management</option>
                     <option value="multiple">Multiple Services</option>
                   </motion.select>
                   {errors.service && <span className="error-message">{errors.service}</span>}
